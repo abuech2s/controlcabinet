@@ -1,0 +1,2 @@
+REM java -DlogPath="." -Dlogback.configurationFile="logback.xml" -jar @project.name@.jar ip=<targetip> port=<targetport> trigger=<1,2,3> triggertime=1000
+java -DlogPath="." -Dlogback.configurationFile="logback.xml" -jar @project.name@.jar trigger=3
