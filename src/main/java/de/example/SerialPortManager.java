@@ -1,4 +1,4 @@
-package de.example.serialport;
+package de.example;
 
 import java.io.IOException;
 import java.io.InputStream;

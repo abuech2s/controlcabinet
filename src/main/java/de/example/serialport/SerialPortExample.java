@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.Scanner;
 
 import com.fazecast.jSerialComm.SerialPort;
+import de.example.SerialPortManager;
 
 /**
  * Example application demonstrating serial port usage.

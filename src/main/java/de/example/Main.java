@@ -62,7 +62,6 @@ public class Main {
             throw new RuntimeException(e);
         }
 
-        //All these implementations are just for testing/debugging. Cleanup needed at the end.
         Thread triggerThread = null;
         switch (RS232TRIGGER) {
             case 1:
@@ -73,6 +72,12 @@ public class Main {
                 break;
             case 3:
                 triggerThread = new Thread(new RS232Trigger3());
+                break;
+            case 4:
+                triggerThread = new Thread(new RS232Trigger4());
+                break;
+            case 5:
+                triggerThread = new Thread(new RS232Trigger5());
                 break;
             default:
                 triggerThread = new Thread(new RS232Trigger());
@@ -87,7 +92,7 @@ public class Main {
     }
 
     private static void printHelp() {
-        log.info("java -jar *.jar [ip=<ip>] [port=<port>] [trigger={1,2,3}] [triggertime=1000]");
+        log.info("java -jar *.jar [ip=<ip>] [port=<port>] [trigger={1,2,3,4,5}] [triggertime=1000]");
     }
 
 }
