@@ -13,6 +13,7 @@ public class UDPSender implements Runnable {
     private static final Logger log = LoggerFactory.getLogger(UDPSender.class);
     private final Gson gson = new Gson();
     public static volatile double fuelRate = -1.0;
+    public static volatile long lastTimeStampOfData = 0;
     private DatagramSocket clientSocket = null;
 
     @Override
@@ -23,10 +24,10 @@ public class UDPSender implements Runnable {
                 clientSocket = new DatagramSocket();
 
                 while(true) {
-                    Thread.sleep(1000);
+                    Thread.sleep(Main.TRIGGER_TIME);
 
                     DataModel model = new DataModel();
-                    model.setTime(System.currentTimeMillis());
+                    model.setTimestampoflastdata(lastTimeStampOfData);
                     model.setFuelRate(fuelRate);
                     model.setSource(Main.SOURCE);
 

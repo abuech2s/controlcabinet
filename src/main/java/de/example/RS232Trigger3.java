@@ -31,6 +31,7 @@ public class RS232Trigger3 implements Runnable {
                 int rawFuelRate = ((bytes[3] & 0xff) << 8) | (bytes[4] & 0xff);
                 double fuelRate = rawFuelRate / 10.0;
                 UDPSender.fuelRate = fuelRate;
+                UDPSender.lastTimeStampOfData = System.currentTimeMillis();
 
                 log.info("Read bytes ({}): {}. Calculated fuel rate: {}", numRead, bytesToHex(bytes), fuelRate);
 
