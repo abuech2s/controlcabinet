@@ -28,6 +28,7 @@ public class UDPSender implements Runnable {
                     DataModel model = new DataModel();
                     model.setTime(System.currentTimeMillis());
                     model.setFuelRate(fuelRate);
+                    model.setSource(Main.SOURCE);
 
                     byte[] sendData = gson.toJson(model).getBytes();
                     DatagramPacket sendPacket = new DatagramPacket(sendData, sendData.length, InetAddress.getByName(Main.TARGET_IP), Main.TARGET_PORT);

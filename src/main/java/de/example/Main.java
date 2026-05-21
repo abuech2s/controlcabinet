@@ -11,11 +11,12 @@ public class Main {
     private static final Logger log = LoggerFactory.getLogger(Main.class);
 
     public static String TARGET_IP = "192.168.1.5";
-    public static int TARGET_PORT = 8890;
+    public static int TARGET_PORT = 8889;
     public static int RS232TRIGGER = 1;
     public static String LOCAL_IP = "";
     public static byte[] SEND_DATA = new byte[]{(byte) 0x01, (byte) 0x03, (byte) 0x00, (byte) 0x35, (byte) 0x00, (byte) 0x01, (byte) 0x94, (byte) 0x04};
     public static int TRIGGER_TIME = 1000;
+    public static String SOURCE = "unknown";
 
     public static void main(String[] args) {
 
@@ -38,6 +39,9 @@ public class Main {
                         case "triggertime":
                             TRIGGER_TIME = Integer.parseInt(elem[1]);
                             break;
+                        case "source":
+                            SOURCE = elem[1];
+                            break;
                         default:
                             log.info("Could not parse command: {}", arg);
                     }
@@ -52,6 +56,7 @@ public class Main {
         log.info("Take target Port: " + TARGET_PORT);
         log.info("Take RS232 trigger: " + RS232TRIGGER);
         log.info("Take TRIGGER time: " + TRIGGER_TIME);
+        log.info("Take SOURCE: " + SOURCE);
 
         //Determining local ip address
         try {
